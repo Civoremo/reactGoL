@@ -6,7 +6,7 @@ import "./App.css";
 import Canvas from "./Canvas";
 
 function App() {
-  let size = 120;
+  let size = 100;
   let columns = size;
   let rows = size;
   let grid;
@@ -29,8 +29,8 @@ function App() {
     let cellSize = ctx.canvas.width / size;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.lineWidth = 0.5;
-    
-    if(newGridRequest === true) {
+
+    if (newGridRequest === true) {
       grid = create2Dgrid();
     }
 
@@ -112,8 +112,7 @@ function App() {
         // dies
         else if (state === 1 && (neighbors < 2 || neighbors > 3)) {
           next2Dgrid[i][j] = 3;
-        }
-        else if (state === 2 && (neighbors < 2 || neighbors > 3)) {
+        } else if (state === 2 && (neighbors < 2 || neighbors > 3)) {
           next2Dgrid[i][j] = 3;
         }
         // recently dead with <2 >3 neighbors
@@ -162,7 +161,12 @@ function App() {
 
   return (
     <div>
-      <Canvas grid={grid} create2Dgrid={create2Dgrid} initialDraw={draw2Dgrid} runCellAnimation={runCellAnimation}>
+      <Canvas
+        grid={grid}
+        create2Dgrid={create2Dgrid}
+        initialDraw={draw2Dgrid}
+        runCellAnimation={runCellAnimation}
+      >
         Canvas is not working on your system!
       </Canvas>
     </div>
